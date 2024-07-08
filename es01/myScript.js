@@ -17,48 +17,61 @@ try {
 
 b.name='Ciro'; // allow but don't do it
 console.log(b);
-/*
-Block Scope
-const list = [1, 2, 3];
-foo(...list);
-foo(a, b, c) { 
-// do something 
- }
-Array Spread Operator
-let a = 2;
-{
- let b = 20;
-}
-console.log(a) // 2
-console.log(b) // undefined
-Template Literals
-const name = 'Fabio';
-const age = 21;
-console.log( `${name} is ${age * 2}` ); 
-const obj1 = { name: 'Fabio' } 
-const obj2 = { surname: 'Rossi' }
-// clone objects
-const cloned1 = { ...obj1 }
-const cloned2 = Object.assign ({}, obj1)
-// merge objects
-const merge1 = Object.assign ({}, obj1, obj2, { id: 123 } )
-const merge2 = {...obj1, ...obj2, id: 123}
-Object Spread Operator vs Object.assign: 
-const user = {
- name: 'Fabio',
- surname: 'Rossi’,
- coords: { lat: 43, lng: 12 }
-};
-const { 
- name, surname, role: r = 'admin’, coords: { lat, lng }
-} = user ;
-console.log (name, surname, r, lat, lng); 
-// Fabio Rossi Admin 43 12
-Destructuring
-const name = 'Fabio'
-const surname = 'Rossi'
-const params = { name, surname }
 
+//Block Scope
+const mylist  = [1, 2, 3];
+const foo = (a, b, c) => { 
+    // do something 
+    console.log(a,b,c);
+ }
+ foo(...mylist);
+//Array Spread Operator
+let d = 2;
+{
+ let e = 20;
+}
+console.log(d) // 2
+try {
+console.log(e) // undefined
+} catch (error) {
+  console.log(error.message);
+}
+
+
+//Template Literals
+const name2 = 'Fabio';
+const age2 = 21;
+console.log( `${name2} is ${age2 * 2}` ); 
+// clone objects
+const object1 = { name: 'Fabio' } 
+const object2 = { surname: 'Rossi' }
+const cloned0 = { object1 }
+const cloned1 = { ...object1 }
+const cloned2 = Object.assign ({}, object2)
+console.log(JSON.stringify(cloned0));
+console.log(JSON.stringify(cloned1));
+console.log(JSON.stringify(cloned2));
+
+// merge objects
+const merge1 = Object.assign ({}, object1, object2, { id: 123 } )
+console.log(merge1);
+const merge2 = {...object1, ...object2, id: 123}
+console.log(merge2);
+
+// Object Spread Operator vs Object.assign: 
+const user = {
+ name2: 'Fabio',
+ surname2: 'Rossi',
+ coords2: { lat: 43, lng: 12 }
+};
+
+
+// Fabio Rossi Admin 43 12
+//Destructuring
+const name4 = 'Fabio'
+const surname4 = 'Rossi'
+const params = { name4, surname4 }
+/*
 //Array Spread Operator
 const list = [1, 2, 3];
 foo(...list);
@@ -82,19 +95,20 @@ const add = (a, b) => a + b;
 const divide = (a = 0, b = 1) => {
  return a / b
 }
+ 
 const getUser = () => ({name: ‘Paolo})
 
-Array methods (map, filter, …)
-const users = [
+//Array methods (map, filter, …)
+const userstot = [
     {"name": "Lisa", "age": 35},
     {"name": "Silvia", "age": 2},
     {"name": "Fabio", "age": 25},
    ]
-   const result = users.filter(user => user.age > 18)
+   const resulttot = userstot.filter(user => user.age > 18)
     .map(user => user.name)
    // output ["Lisa", "Fabio"]
 
-   For…in vs For…of
+  // For…in vs For…of
    const list = [
     { label: 'Fabio' },
     { label: 'Lisa' },
@@ -109,15 +123,16 @@ const users = [
    }
 
    //Map
-   const users = new Map()
-const myInstance = {} // any instance
-users.set( 100, { label: 'Silvia' } )
-users.set( myInstance, { someValue: 123 } )
-console.log(users.get( 100 )) // { "label": "Silvia" }
-console.log(users.get( myInstance )) // { “someValue”: 123 }
-console.log(users.size) // 2
+   const usersmap = new Map();
+const myInstance = {}; // any instance
+usersmap.set( 100, { label: 'Silvia' } );
+usersmap.set( myInstance, { someValue: 123 } );
+console.log(usersmap.get( 100 )); // { "label": "Silvia" }
+console.log(usersmap.get( myInstance )); // { “someValue”: 123 }
+console.log(usersmap.size); // 2
 
-Promise
+// Promise
+/*
 const doStuff = new Promise((resolve, reject) => {
     // asynchronous stuff (i.e. XHR request, timers, ...)
     setTimeout(() => resolve('hello'), 2000);
