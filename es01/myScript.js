@@ -31,11 +31,24 @@ let d = 2;
  let e = 20;
 }
 console.log(d) // 2
+
 try {
-console.log(e) // undefined
-} catch (error) {
-  console.log(error.message);
+  console.log(e) // undefined
+  } catch (error) {
+    console.log(error.message);
+  }
+
+var dd = 2;
+{
+ var ee = 20;
 }
+console.log(dd) // 2
+
+try {
+  console.log(ee) // undefined
+  } catch (error) {
+    console.log(error.message);
+  }
 
 
 //Template Literals
@@ -71,11 +84,11 @@ const user = {
 const name4 = 'Fabio'
 const surname4 = 'Rossi'
 const params = { name4, surname4 }
-/*
+
 //Array Spread Operator
 const list = [1, 2, 3];
 foo(...list);
-foo(a, b, c) { 
+const myfoo = (a, b, c) =>{ 
 //do something 
  }
 
@@ -83,20 +96,20 @@ foo(a, b, c) {
 const obj1 = { name: 'Fabio' } 
 const obj2 = { surname: 'Rossi' }
 // clone objects
-const cloned1 = { ...obj1 }
-const cloned2 = Object.assign ({}, obj1)
+const cloneda = { ...obj1 }
+const clonedb = Object.assign ({}, obj1)
 // merge objects
-const merge1 = Object.assign ({}, obj1, obj2, { id: 123 } )
-const merge2 = {...obj1, ...obj2, id: 123}
+const mergea = Object.assign ({}, obj1, obj2, { id: 123 } )
+const mergeb = {...obj1, ...obj2, id: 123}
 
-Arrow Functions
+//Arrow Functions
 const pow = a => a * a;
 const add = (a, b) => a + b;
 const divide = (a = 0, b = 1) => {
  return a / b
 }
  
-const getUser = () => ({name: ‘Paolo})
+const getUser = () => ({name: "Paolo"})
 
 //Array methods (map, filter, …)
 const userstot = [
@@ -109,30 +122,30 @@ const userstot = [
    // output ["Lisa", "Fabio"]
 
   // For…in vs For…of
-   const list = [
+   const mylist2 = [
     { label: 'Fabio' },
     { label: 'Lisa' },
    ];
    // ES5 for...in (avoid, you should use it just for objects)
-   for (const key in list) {
+   for (const key in mylist2) {
     console.log( list[key].label ); // 0 Fabio, 1 Lisa
    }
    // ES6 for...of 
-   for (const user of list) {
+   for (const user of mylist2) {
     console.log( user.label ); // Fabio, Lisa
    }
 
    //Map
-   const usersmap = new Map();
+   const usersmap7 = new Map();
 const myInstance = {}; // any instance
-usersmap.set( 100, { label: 'Silvia' } );
-usersmap.set( myInstance, { someValue: 123 } );
-console.log(usersmap.get( 100 )); // { "label": "Silvia" }
-console.log(usersmap.get( myInstance )); // { “someValue”: 123 }
-console.log(usersmap.size); // 2
+usersmap7.set( 100, { label: 'Silvia' } );
+usersmap7.set( myInstance, { someValue: 123 } );
+console.log(usersmap7.get( 100 )); // { "label": "Silvia" }
+console.log(usersmap7.get( myInstance )); // { “someValue”: 123 }
+console.log(usersmap7.size); // 2
 
 // Promise
-/*
+
 const doStuff = new Promise((resolve, reject) => {
     // asynchronous stuff (i.e. XHR request, timers, ...)
     setTimeout(() => resolve('hello'), 2000);
@@ -148,27 +161,27 @@ const doStuff = new Promise((resolve, reject) => {
     console.log(`Hi ${name}`)
     }
    }
-   const a = new MyClass()
-   a.hello('Fabio') // Hi Fabio
+   const ab = new MyClass()
+   ab.hello('Fabio') // Hi Fabio
    
 //   Module: import / export
-import { doSomething } from ‘./path/fileName’
-export function doSomething() { }
+//import { doSomething } from ‘./path/fileName’
+//export function doSomething() { }
 
-Module: export default
-import AnyName from ‘./path/fileName’
+//Module: export default
+//import AnyName from ‘./path/fileName’
 // export class
-export default class MyComponent { }
+//export default class MyComponent { }
 // or functions:
-const add = (a, b) => a + b;
-export default add;
+//const myadd = (a, b) => a + b;
+//export default myadd;
 // or more concise:
-export default (a, b) => a + b;
+//export default (a, b) => a + b;
 
-Module: import all
-import * as Utils from ‘./path/fileName’
+//Module: import all
+//import * as Utils from ‘./path/fileName’
 
-Immutability
+//Immutability
 
 const users = [
     { id: 1, name: 'Silvia' },
@@ -176,14 +189,15 @@ const users = [
     { id: 3, name: 'Lorenzo' }
    ];
    // ADD
-   const user = { id: 5, name: 'Lisa' }
-   const result = [...users, user]
+   //const userz6 = { id: 5, name: 'Lisa' }
+   //const resultz1 = [...userz6, userz6] //TODO: why does not work?
+
    // DELETE
    const id = 2;
-   const result = users.filter(user => user.id != id)
+   const resultz2 = users.filter(user => user.id != id)
    // EDIT
    const updatedUser = {id: 1, name: 'Paolo' }
-   const result = users.map(user => {
+   const resultz3 = users.map(user => {
     return user.id === updatedUser.id ? updatedUser : user
    })
-   */
+   
