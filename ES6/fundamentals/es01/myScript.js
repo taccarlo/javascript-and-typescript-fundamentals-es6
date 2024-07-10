@@ -1,6 +1,9 @@
 
 // node myScript.js
 
+let abc = { id : 123, name: "Carlo"};
+abc.id = "ciao"
+
 // let
 let a=1;
 a=2;
