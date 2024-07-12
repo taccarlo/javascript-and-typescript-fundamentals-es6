@@ -1,0 +1,1 @@
+Angular, Javascript and Typescript study
